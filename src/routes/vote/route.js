@@ -1,13 +1,8 @@
 module.exports = {
-  path: 'admin',
+  path: 'vote',
   getComponents(nextState, callback){
     require.ensure([], () => {
       callback(null, require('./index'))
     })
-  },
-  getChildRoutes({location}, cb) {
-    cb(null, [
-      require('./contest/route')
-    ])
   }
 }

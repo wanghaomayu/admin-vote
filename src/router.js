@@ -29,9 +29,9 @@ const Routers = ({history, app}) => {
       path: '/',
       component: App,
       getIndexRoute({location}, cb) {
-        const model = require(`./routes/home/model.js`)
+        const model = require(`./routes/vote`)
         registerModel(app, model)
-        cb(null, {component: require('./routes/home')})
+        cb(null, {component: require('./routes/vote')})
       },
       getChildRoutes({location}, cb) {
         registerModelByPath(app, location.pathname)

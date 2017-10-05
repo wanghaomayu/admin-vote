@@ -1,6 +1,6 @@
 {
-  "name": "全国大学生电子设计竞赛 · 河北赛区",
-  "footerText": "全国大学生电子设计竞赛",
+  "name": "投票系统 · 管理端",
+  "footerText": "投票系统",
   "iconFontCSS": "/app/iconfont.css",
   "iconFontJS": "/app/iconfont.js",
   "logoSrc": "/app/favicon.ico",

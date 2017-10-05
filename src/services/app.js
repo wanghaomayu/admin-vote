@@ -1,19 +1,12 @@
 import { API, request } from '../utils'
 
-const query = async () => {
+const login = async (data) => {
   return request({
-    url: API.tokenVerify,
-    method: 'get',
-    token: true
-  })
-}
-const exportF = async ({filename}) => {
-  return request({
-    url: 'http://nuedc.hrsoft.net/sysadmin/contest-record/export',
-    method: 'export',
+    url: API.login,
+    method: 'post',
     token: true,
-    filename
+    data
   })
 }
 
-export { query, exportF }
+export { login }

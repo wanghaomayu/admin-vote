@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'dva/router'
+import { Link, routerRedux } from 'dva/router'
 import TweenOne from 'rc-tween-one'
 import { config, enquireScreen, goto } from '../../../utils/'
 import './index.less'
@@ -7,7 +7,7 @@ import navConfig from './header.json'
 import { Dropdown, Icon, Menu, Modal } from 'antd'
 class Header extends React.Component {
   static defaultProps = {
-    className: 'home-header'
+    className: 'vote-header'
   }
 
   constructor (props) {
@@ -63,7 +63,10 @@ class Header extends React.Component {
       title: '退出确认',
       content: '是否退出？退出后下次进入需要重新登录。',
       onOk () {
-        dispatch({type: 'login/logout'})
+        dispatch({type: 'app/logout'})
+        window.localStorage.removeItem('userToken')
+        window.localStorage.removeItem('userName')
+        dispatch(routerRedux.push('/login'))
       },
       onCancel () {}
     })
@@ -103,7 +106,7 @@ class Header extends React.Component {
                 {this.state.isMode ? (
                   '全国大学生电子设计竞赛'
                 ) : config.name}
-             </span>
+              </span>
             </Link>
           </TweenOne>
           {
@@ -128,7 +131,7 @@ class Header extends React.Component {
                         ) : (
                           <Link to={`/login?from=${location.pathname}`}
                           >
-                            登录注册
+                            登录
                           </Link>
                         )}
                       </li>
@@ -154,9 +157,6 @@ class Header extends React.Component {
                     {app.user.id ? (
                       <Dropdown overlay={(
                         <Menu theme='dark' style={{width: 90, float: 'right'}}>
-                          <Menu.Item key=''>
-                            <Link to={`/${app.role}`}>{app.role === 'student' ? '参与竞赛' : '进入后台'}  </Link>
-                          </Menu.Item>
                           <Menu.Item key='2'>
                             <Link onClick={this.onClickLogout}> 退出登录 </Link>
                           </Menu.Item>
@@ -171,7 +171,7 @@ class Header extends React.Component {
                       <Link
                         to={`/login?from=${location.pathname}`}
                       >
-                        登录注册
+                        登录
                       </Link>
                     )}
                   </li>

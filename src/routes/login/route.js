@@ -1,5 +1,5 @@
 module.exports = {
-  path: 'home',
+  path: 'login',
   getComponents(nextState, callback){
     require.ensure([], () => {
       callback(null, require('./index'))

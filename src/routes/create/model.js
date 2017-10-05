@@ -1,9 +1,9 @@
 export default {
-  namespace: 'adminContest',
+  namespace: 'create',
   subscriptions: {
     appSubscriber ({dispatch, history}) {
       return history.listen(({pathname}) => {
-        console.log('adminContest')
+        console.log('create')
       })
     }
   },
