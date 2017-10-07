@@ -8,7 +8,7 @@ export default {
   state: {
     user: window.localStorage.getItem('userName') || '{}',
     token: window.localStorage.getItem('userToken') || '',
-    nobg: []
+    nobg: ['/login']
   },
   subscriptions: {
     appSubscriber ({dispatch, history}) {

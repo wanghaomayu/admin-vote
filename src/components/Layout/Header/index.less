@@ -76,8 +76,9 @@
       .@{header} {
         transform: translateY(50%);
         & a {
-          filter: grayscale(1) brightness(3);
-          color: @nav-link-active-color;
+          visibility: hidden;
+          //filter: opacity(0);
+          //color: @nav-link-active-color;
         }
       }
     }

@@ -14,8 +14,11 @@ export default modelExtend(modalModel, tableModel, alertModel, {
     },
   },
   effects: {
-    * fetchTable ({payload = {}}, {call, put, select}) {},
-    * delete ({payload},{call,put}) {}
+    * fetchTableCurrent ({payload = {}}, {call, put, select}) {},
+    * fetchTableUnStart ({payload = {}}, {call, put, select}) {},
+    * fetchTablePast ({payload = {}}, {call, put, select}) {},
+    * update ({payload}, {call, put, select}) {},
+    * delete ({payload}, {call, put}) {}
   },
   state: {},
   reducers: {}
